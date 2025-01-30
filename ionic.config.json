@@ -1,0 +1,7 @@
+{
+  "name": "SANBLAS_202412_Guasap",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
