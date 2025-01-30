@@ -14,7 +14,24 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-list>
+      <ion-item>
+        <ion-input label="Emisor" [(ngModel)]="mensaje.emisor"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Mensaje" [(ngModel)]="mensaje.mensaje"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="enviar()">Enviar</ion-button>
+      </ion-item>
+      @for (mensaje of firebaseService.mensajes; track $index) {
+      <ion-item>
+        <div class="mensaje">
+          <p class="emisor">{{mensaje.child('mensaje').child('emisor').val()}}</p>
+          <p>{{mensaje.child('mensaje').child('mensaje').val()}}</p>
+        </div>
+      </ion-item>
+      }
+    </ion-list>
   </div>
 </ion-content>
